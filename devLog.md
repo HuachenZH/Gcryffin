@@ -23,7 +23,33 @@ It's been a time i haven't coded. Respawn as newbie. Ah shit, here we go again.
 - intiate pyenv virtual env (Cf readme)
 
 
+## WBS
+- getting_started
+  - set_up_auth
+    - a_google_cloud_project
+    - a_local_installation_of_the_gcloud_CLI
+  - ...
 
+
+### WBS - forEach
+- a_google_cloud_project, [official doc](https://developers.google.com/workspace/guides/create-project)
+  - install the gcould CLI, [doc](https://cloud.google.com/sdk/docs/install#linux)
+    - i picked the instructions in "linux" (wsl is not ubuntu, i was wrong)  
+      ```shell
+      # download archive by curl. You can put it in ~
+      $ curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz
+      # "unzip":
+      $ tar -xf google-cloud-cli-linux-x86_64.tar.gz
+      # install gcloud sdk:
+      $ ./google-cloud-sdk/install.sh
+      ```
+      During the install process, it will prompt two questions.  
+      The first prompt is google's data collection, you can put N.  
+      The second prompt is to add gcloud CLI to PATH. It's suggested to put y.  
+    - first time running: 
+      - $ `./google-cloud-sdk/bin/gcloud init`
+      - then i need to sign in, wsl cannot open browser so i need to copy paste the url in browser
+      - need to use dvt account, google cloud service is enabled
 
 
 ## Obstables
@@ -32,6 +58,17 @@ It's been a time i haven't coded. Respawn as newbie. Ah shit, here we go again.
 
 
 
+To install or remove components at your current SDK version [491.0.0], run:
+  $ gcloud components install COMPONENT_ID
+  $ gcloud components remove COMPONENT_ID
+
+To update your SDK installation to the latest version [491.0.0], run:
+  $ gcloud components update
+
+
+
+
 to_resume:
-- setup oauth: https://ai.google.dev/gemini-api/docs/oauth
+- setup oauth: https://ai.google.dev/gemini-api/docs/oauth   
+  --> create a cloud project (https://developers.google.com/workspace/guides/create-project#gcloud-cli)
 
