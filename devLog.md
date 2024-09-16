@@ -50,12 +50,20 @@ It's been a time i haven't coded. Respawn as newbie. Ah shit, here we go again.
       - $ `./google-cloud-sdk/bin/gcloud init`
       - then i need to sign in, wsl cannot open browser so i need to copy paste the url in browser
       - need to use dvt account, google cloud service is enabled
+    - update: when i tried to create a gcloud project by CLI, it says "ERROR: (gcloud.projects.create) FAILED_PRECONDITION: Cloud Resource Manager project creation is disabled."
+    - created with my own gmail accout:  
+      - Project name : Gcryffin-prototype
+      - Project number : 660248704793
+      - Project ID : gcryffin-prototype
 
 
-## Obstables
+## Obstacles
 - while preparing virtualenv, `pyenv virtualenv 3.12.5 Gcryffin`, it gives: "pyenv: no installed versions match the prefix `-q'".  
   However it seems that the virtualenv is still created.  
 
+- gcloud create project obstacle:
+  - if i use dvt account, i cannot create project
+  - if i my own gamil account, i can create project, but some features will be disabled
 
 
 To install or remove components at your current SDK version [491.0.0], run:
