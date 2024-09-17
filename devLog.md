@@ -6,6 +6,8 @@
   - vertex ai: is the platform to interact and fine tune gemini
 - official doc (this is an overview of procedures): [fine tuning gemini with api](https://ai.google.dev/gemini-api/docs/model-tuning)
   - when you are ready to start: [Fine-tuning tutorial](https://ai.google.dev/gemini-api/docs/model-tuning/tutorial?lang=python)
+  - same as above, but in [github notebook](https://github.com/google/generative-ai-docs/blob/main/site/en/gemini-api/docs/model-tuning/python.ipynb)
+- [Get started with semantic retrieval](https://ai.google.dev/gemini-api/docs/semantic_retrieval)
 - medium article, [use py swarm to get started with gemini](https://medium.com/@kyeg/get-started-with-gemini-the-all-new-ultra-powerful-model-from-google-7f96c003f7f5)
 
 
@@ -26,8 +28,9 @@ It's been a time i haven't coded. Respawn as newbie. Ah shit, here we go again.
 ## WBS
 - getting_started
   - set_up_auth
-    - a_google_cloud_project
-    - a_local_installation_of_the_gcloud_CLI
+    - a_google_cloud_project (prerequisite)
+    - a_local_installation_of_the_gcloud_CLI (prerequisite)
+    - set_up_OAuth_quickstart
   - ...
 
 
@@ -56,6 +59,13 @@ It's been a time i haven't coded. Respawn as newbie. Ah shit, here we go again.
       - Project number : 660248704793
       - Project ID : gcryffin-prototype
 
+- set_up_OAuth_quickstart
+  - official doc: https://ai.google.dev/gemini-api/docs/oauth
+  - first you need to enable API.  
+    Normally there is a button in the tuto, click it and it opens in your gcloud project.  
+  - Create OAuth 2.0 client ID (it's a credential)
+  - make the above credential default, cf "Set up application default credentials"
+
 
 ## Obstacles
 - while preparing virtualenv, `pyenv virtualenv 3.12.5 Gcryffin`, it gives: "pyenv: no installed versions match the prefix `-q'".  
@@ -72,6 +82,12 @@ To install or remove components at your current SDK version [491.0.0], run:
 
 To update your SDK installation to the latest version [491.0.0], run:
   $ gcloud components update
+
+
+
+
+## what i skipped
+- manage credentials myself with python (https://ai.google.dev/gemini-api/docs/oauth#manage-credentials)
 
 
 
