@@ -93,6 +93,7 @@ To update your SDK installation to the latest version [491.0.0], run:
 
 
 to_resume:
-- setup oauth: https://ai.google.dev/gemini-api/docs/oauth   
-  --> create a cloud project (https://developers.google.com/workspace/guides/create-project#gcloud-cli)
+get started fine tuning:  
+- follow the github notebook: https://github.com/google/generative-ai-docs/blob/main/site/en/gemini-api/docs/model-tuning/python.ipynb
+- it the info is not sufficient, go read semantic retrieval
 
