@@ -75,6 +75,8 @@ It's been a time i haven't coded. Respawn as newbie. Ah shit, here we go again.
   - if i use dvt account, i cannot create project
   - if i my own gamil account, i can create project, but some features will be disabled
 
+- when trying to list tuned models, it says "403 Request had insufficient authentication scopes. [reason: "ACCESS_TOKEN_SCOPE_INSUFFICIENT"
+
 
 To install or remove components at your current SDK version [491.0.0], run:
   $ gcloud components install COMPONENT_ID
