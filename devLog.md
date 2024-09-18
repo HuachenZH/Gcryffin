@@ -85,6 +85,13 @@ To update your SDK installation to the latest version [491.0.0], run:
 
 
 
+## Abbr.
+| abbr    |  full name |
+| ------- |  --------- |
+| ADC |  application default credentail |
+
+
+
 
 ## what i skipped
 - manage credentials myself with python (https://ai.google.dev/gemini-api/docs/oauth#manage-credentials)
@@ -93,7 +100,7 @@ To update your SDK installation to the latest version [491.0.0], run:
 
 
 to_resume:
-get started fine tuning:  
-- follow the github notebook: https://github.com/google/generative-ai-docs/blob/main/site/en/gemini-api/docs/model-tuning/python.ipynb
-- it the info is not sufficient, go read semantic retrieval
-
+Make the code below work:
+for i, m in zip(range(5), genai.list_tuned_models()):
+  print(m.name)
+Hint: it's a genai APi, i might need to set the required scope. Maybe in py, maybe in gcloud cli
