@@ -159,7 +159,4 @@ To update your SDK installation to the latest version [491.0.0], run:
 
 
 to_resume:
-Make the code below work:
-for i, m in zip(range(5), genai.list_tuned_models()):
-  print(m.name)
-Hint: it's a genai APi, i might need to set the required scope. Maybe in py, maybe in gcloud cli
+in reiAyanami, try run the chunk "test"
