@@ -87,6 +87,63 @@ To update your SDK installation to the latest version [491.0.0], run:
 
 
 
+## trouble shooting
+- API trouble, it returns "inactiveRpcError, timeout of 60 second exceeded.", and also "503 Getting metadata from plugin failed with error: ('invalid_grant: Token has been expired or revoked."
+  - __description of trouble__: i ran the simplest code
+    ```python
+    for i, m in zip(range(5), genai.list_tuned_models()):
+        print(m.name)
+    ```
+    And it gives error each time, saying that timeout exceeded and token expired.  
+    However i check in google cloud that the credentials is enabled
+  - __root cause__: the credential is enabled at google cloud's side, but in my local, the `client_secret.json` is not converted into usable crendientials.  
+    In other words, the ADC is not ok.  
+  - __solution__: i found it in the official doc of [oauth](https://ai.google.dev/gemini-api/docs/oauth),  
+    I need to run the command in terminal:  
+    ```shell 
+    $ gcloud auth application-default login \
+    --client-id-file=client_secret.json \
+    --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
+    ``` 
+    Then it will prompt that the credential is saved to ADC: "/home/huachen/.config/gcloud/application_default_credentials.json"  
+
+    Not sure but maybe you also need to `$ gcloud auth application-default login`
+
+- API trouble, still the same shitty code as above, now it says:  
+  ```text
+  PermissionDenied: 403 Request had insufficient authentication scopes. [reason: "ACCESS_TOKEN_SCOPE_INSUFFICIENT"
+  domain: "googleapis.com"
+  metadata {
+    key: "service"
+    value: "generativelanguage.googleapis.com"
+  }
+  metadata {
+    key: "method"
+    value: "google.ai.generativelanguage.v1beta.ModelService.ListTunedModels"
+  }
+  ]
+  ```
+  - __root cause__: problem at python code
+  - __work around__: in this [github issue](https://github.com/google-gemini/generative-ai-python/issues/8),  
+    I found a snippet:  
+    ```shell
+    curl -H "Authorization: Bearer $(gcloud auth application-default print-access-token)" \
+     -H "X-Goog-User-Project: $(gcloud config get project)" -X GET \
+     "https://generativelanguage.googleapis.com/v1beta2/models"
+    ```
+    I tried it and it works. Then in the official doc, i also found  
+    ```shell
+    access_token=$(gcloud auth application-default print-access-token)
+    project_id=gcryffin-prototype
+    curl -X GET https://generativelanguage.googleapis.com/v1/models \
+        -H 'Content-Type: application/json' \
+        -H "Authorization: Bearer ${access_token}" \
+        -H "x-goog-user-project: ${project_id}" | grep '"name"'
+    ```
+    This also works.  
+    Then i found that the problem is at the python code, `genai.list_tuned_models()` does not work, `genai.list_models()` works
+
+
 ## Abbr.
 | abbr    |  full name |
 | ------- |  --------- |
