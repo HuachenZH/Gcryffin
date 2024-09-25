@@ -25,6 +25,18 @@ list accounts:  $ gcloud auth list
     - i type "y" and it seems that API is enabled, credential is savec to file ~/.config/gcloud/application_default_credentials.json
       - i took a look inside the json, there are keys like "client_id", "client_secret", "quota_project_id", "refresh_token"
 
+- convert the client_secret.json file into usable credentials, and specify scopes:  
+  ```shell
+  $ gcloud auth application-default login \
+    --client-id-file=client_secret.json \
+    --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
+  ```
+  It will yield a url link and you will need to copy paste it in browser
+
+
+
+
+
 
 ----------------------------------
 
